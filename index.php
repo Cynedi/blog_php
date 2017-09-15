@@ -6,11 +6,13 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/main.css">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
 
         <link rel="stylesheet" href="css/normalize.min.css">
-        <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/bootstrap.css">
+
 
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
@@ -18,10 +20,10 @@
 
       <header>
         <h1>Beauty Nature</h1>
-        <span>Le blog au naturel</span>
+        <h2>-Le blog au naturel-</h2>
       </header>
 
-        <h2>Les Derniers Billets:</h2>
+        <h3>Les Derniers Billets:</h3>
 <!--Debut de la row pour les articles-->
         <div class="container">
         <section class="row">
@@ -52,7 +54,7 @@
           <h4 class="card-title"><?php echo htmlspecialchars($donnees['titre']); ?></h4>
           <em>le <?php echo $donnees['date_creation_fr']; ?> </em><br><br>
           <p class="card-text"><?php echo nl2br(htmlspecialchars($donnees['contenu'])); ?></p>
-          <a href="commentaires.php?billet=<?php echo $donnees['id']; ?>" class="btn btn-primary">Lire la suite</a>
+          <a href="commentaires.php?billet=<?php echo $donnees['id']; ?>" class="btn ">Lire la suite</a>
         </div>
       </figure>
     </article>

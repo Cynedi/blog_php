@@ -9,8 +9,8 @@ catch(Exception $e)
         die('Erreur : '.$e->getMessage());
 }
 
-// Inscription des commentaires en bd et requête préparée
-$req = $bdd->prepare('INSERT INTO commentaires(id_billet,auteur,commentaire,date_commentaire) VALUES(?,?,?,NOW())') or die(print_r($bdd->getMessage()));
+// Inscription des commentaires dans la base de donnée//
+$req = $bdd->prepare('INSERT INTO commentaires(id_billet,auteur,commentaire,date_commentaire) VALUES(?,?,?,NOW())');
 $req->execute(array($_POST['billet'],$_POST['auteur'],$_POST['commentaire']));
 
 header('Location:commentaires.php?billet=' .$_POST['billet']);

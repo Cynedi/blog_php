@@ -4,11 +4,20 @@
         <meta charset="utf-8" />
         <title>Mon blog</title>
 	<link href="style.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/normalize.min.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
     </head>
 
     <body>
-        <h1>beauty blog</h1>
-        <p><a href="index.php">Retour à la liste des billets</a></p>
+      <header>
+        <h1>Beauty Nature</h1>
+        <h2>-Le blog au naturel-</h2>
+      </header>
+
+        <p><a id="retour" href="index.php">Retour à la liste des billets</a></p>
 
 <?php
 // Connexion à la base de données
@@ -54,8 +63,10 @@ $req->execute(array($_GET['billet']));
 while ($donnees = $req->fetch())
 {
 ?>
+<div id="coment">
 <p><strong><?php echo htmlspecialchars($donnees['auteur']); ?></strong> le <?php echo $donnees['date_commentaire_fr']; ?></p>
 <p><?php echo nl2br(htmlspecialchars($donnees['commentaire'])); ?></p>
+</div>
 <?php
 } // Fin de la boucle des commentaires
 $req->closeCursor();
@@ -63,14 +74,17 @@ $req->closeCursor();
 
 <!--formulaire commentaires-->
 
-<form action="commentaires_post.php" method="POST">
-  <label for="auteur">Nom:<br /> <input type="text" name="auteur" id="auteur"></label> <br />
+<form id="com" action="commentaires_post.php" method="POST">
+  <div class="form-group ">
+  <label for="auteur">Nom:<br /> <input class="form-control" type="text" name="auteur" id="auteur"></label> <br />
   <label for="commentaire">Commentaire:</label> <br />
   <textarea name="commentaire" id="commentaire"></textarea>
 
-  <input type="submit" name="Envoyer" value="Laisser un commentaire" id="Envoyer">
-  
-  <input type="hidden" name="billet" value="<?php echo $_GET['billet'];?>">
+  <input class="form-control" type="submit" name="Envoyer" value="Laisser un commentaire" id="Envoyer">
+
+  <input class="form-control" type="hidden" name="billet" width="50px" value="<?php echo $_GET['billet'];?>">
+</div>
 </form>
+
 </body>
 </html>
