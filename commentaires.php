@@ -60,5 +60,17 @@ while ($donnees = $req->fetch())
 } // Fin de la boucle des commentaires
 $req->closeCursor();
 ?>
+
+<!--formulaire commentaires-->
+
+<form action="commentaires_post.php" method="POST">
+  <label for="auteur">Nom:<br /> <input type="text" name="auteur" id="auteur"></label> <br />
+  <label for="commentaire">Commentaire:</label> <br />
+  <textarea name="commentaire" id="commentaire"></textarea>
+
+  <input type="submit" name="Envoyer" value="Laisser un commentaire" id="Envoyer">
+  
+  <input type="hidden" name="billet" value="<?php echo $_GET['billet'];?>">
+</form>
 </body>
 </html>
